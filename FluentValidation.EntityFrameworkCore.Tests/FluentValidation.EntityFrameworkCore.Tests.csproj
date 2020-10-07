@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;net5.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>    
+    <PackageReference Include="Moq" Version="4.14.6" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0"  Condition="'$(TargetFramework)' == 'netcoreapp2.0'"/>    
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.0-rc.1.20451.13" Condition="'$(TargetFramework)' == 'net5.0'"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FluentValidaiton.EntityFrameworkCore\FluentValidaiton.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+</Project>

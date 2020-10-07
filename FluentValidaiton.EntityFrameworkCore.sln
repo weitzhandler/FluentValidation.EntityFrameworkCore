@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidaiton.EntityFrameworkCore", "FluentValidaiton.EntityFrameworkCore\FluentValidaiton.EntityFrameworkCore.csproj", "{6E77C908-A847-4E3E-A269-B5F7778AF95E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidation.EntityFrameworkCore.Tests", "FluentValidation.EntityFrameworkCore.Tests\FluentValidation.EntityFrameworkCore.Tests.csproj", "{386048D7-F983-410C-A1CB-ABE4A188DBC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E77C908-A847-4E3E-A269-B5F7778AF95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E77C908-A847-4E3E-A269-B5F7778AF95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E77C908-A847-4E3E-A269-B5F7778AF95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E77C908-A847-4E3E-A269-B5F7778AF95E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{386048D7-F983-410C-A1CB-ABE4A188DBC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386048D7-F983-410C-A1CB-ABE4A188DBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386048D7-F983-410C-A1CB-ABE4A188DBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386048D7-F983-410C-A1CB-ABE4A188DBC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55B2A082-7673-41CD-B122-7CF02F3A98CA}
+	EndGlobalSection
+EndGlobal
