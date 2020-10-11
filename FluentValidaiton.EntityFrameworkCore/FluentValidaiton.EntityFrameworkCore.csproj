@@ -3,10 +3,20 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.1</Version>
+    <Authors>Shimmy Weitzhandler</Authors>
+    <PackageId>Weitzhandler.FluentValidaiton.EntityFrameworkCore</PackageId>
+    <Company />
+    <Product>FluentValidaiton.EntityFrameworkCore</Product>
+    <PackageProjectUrl>https://github.com/weitzhandler/FluentValidation.EntityFrameworkCore</PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/weitzhandler/FluentValidation.EntityFrameworkCore</RepositoryUrl>
+    <PackageTags>FluentValidation, EntityFrameworkCore, DataAnnotations, validation, annotations, entities, entity, EntityFramework</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="8.2.2"/>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="8.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational">
       <Version Condition="'$(TargetFramework)' == 'netstandard2.0'">[2.0.0,5.0.0)</Version>
       <Version Condition="'$(TargetFramework)' == 'netstandard2.1'">5.0.0-rc.1.20451.13</Version>
