@@ -1,3 +1,5 @@
+[![](https://img.shields.io/nuget/v/Weitzhandler.FluentValidaiton.EntityFrameworkCore)](https://www.nuget.org/packages/Weitzhandler.FluentValidaiton.EntityFrameworkCore)
+
 # FluentValidation.EntityFrameworkCore
 
 Loads EF Core column configuration from matching FluentValidation validators registered in assembly.
