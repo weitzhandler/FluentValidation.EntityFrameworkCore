@@ -70,25 +70,36 @@ namespace FluentValidaiton.EntityFrameworkCore
                                 .IsRequired();
                             break;
                         case ExactLengthValidator exactLengthValidator:
+#if NETSTANDARD2_1
+                            getPropertyBuilder(propertyName)
+                                .HasMaxLength(exactLengthValidator.Max)
+                                .IsFixedLength();
+#else
                             //set to char/nchar(length) according to exsisting type                            
                             //or via annotations
+                            //depending on provider
+#endif
                             break;
                         case ILengthValidator lengthValidator when lengthValidator.Max > 0:
                             getPropertyBuilder(propertyName).HasMaxLength(lengthValidator.Max);
                             break;
-#if NETSTANDARD2_1 //for lower versions - set with annotations etc.
                         case ScalePrecisionValidator scalePrecisionValidator:
                             var propertyBuilder = getPropertyBuilder(propertyName);
 
                             if (propertyBuilder.Metadata.ClrType == typeof(decimal))
                             {
+#if NETSTANDARD2_1 //for lower versions - set with annotations etc.
                                 propertyBuilder
                                     .HasPrecision(
                                        precision: scalePrecisionValidator.Precision,
                                        scale: scalePrecisionValidator.Scale);
+#else
+                                //if sql-server/pgs
+                                //propertyBuilder
+                                //    .HasColumnType($"decimal({scalePrecisionValidator.Precision},{scalePrecisionValidator.Scale})");
+#endif
                             }
                             break;
-#endif
                     }
                 }
             }
