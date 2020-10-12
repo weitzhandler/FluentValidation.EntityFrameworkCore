@@ -70,15 +70,9 @@ namespace FluentValidaiton.EntityFrameworkCore
                                 .IsRequired();
                             break;
                         case ExactLengthValidator exactLengthValidator:
-#if NETSTANDARD2_1
                             getPropertyBuilder(propertyName)
                                 .HasMaxLength(exactLengthValidator.Max)
                                 .IsFixedLength();
-#else
-                            //set to char/nchar(length) according to exsisting type                            
-                            //or via annotations
-                            //depending on provider
-#endif
                             break;
                         case ILengthValidator lengthValidator when lengthValidator.Max > 0:
                             getPropertyBuilder(propertyName).HasMaxLength(lengthValidator.Max);
