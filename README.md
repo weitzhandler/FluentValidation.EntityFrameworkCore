@@ -12,6 +12,27 @@ services
   .AddValidatorsFromAssemblyContaining<EntityValidator>();
 ``` 
 
+Then in `DbContext`:
+
+```c#
+public class EntityContext : DbContext
+{    
+    private readonly IServiceProvider serviceProvider;
+
+    public EntityContext(DbContextOptions<EntityContext> options, IServiceProvider serviceProvider)
+        : base(options)
+    {
+        this.serviceProvider = serviceProvider;            
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationFromFluentValidations(serviceProvider);
+    }
+}
+```
+Note: we need the service provider to obtain the various `IValidator<>`s from the container.
+
 The following validators are currently supported:
 
 - `INotNullValidator`/`INotEmptyValidator` (e.g. `RuleFor(entity => entity.Property.NotNull())`)  
