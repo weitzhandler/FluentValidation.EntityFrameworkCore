@@ -6,13 +6,15 @@ Loads EF Core column configuration from matching FluentValidation validators reg
 
 Usage:
 
+Install the [`Weitzhandler.FluentValidation.EntityFrameworkCore`](https://www.nuget.org/packages/Weitzhandler.FluentValidaiton.EntityFrameworkCore) package, and set up `FluentValidation.DependencyInjection` to register all validators:
+
 ```c#
 services
   .AddDbContext<EntityContext>(options => ...)
   .AddValidatorsFromAssemblyContaining<EntityValidator>();
 ``` 
 
-Then in `DbContext`:
+Then, in your `DbContext`'s `OnModelCreating` method, call `modelBuilder.ApplyConfigurationFromFluentValdations(serviceProvider)`:
 
 ```c#
 public class EntityContext : DbContext
@@ -31,7 +33,7 @@ public class EntityContext : DbContext
     }
 }
 ```
-Note: we need the service provider to obtain the various `IValidator<>`s from the container.
+Note: we need a reference to the service provider so that we obtain the registered `IValidator<>`s from it.
 
 The following validators are currently supported:
 
