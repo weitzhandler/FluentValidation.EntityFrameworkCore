@@ -4,6 +4,7 @@
     <TargetFrameworks>netcoreapp2.0;net5.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <LangVersion>8.0</LangVersion>
+    <Version>0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>    
@@ -14,8 +15,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
 
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0"  Condition="'$(TargetFramework)' == 'netcoreapp2.0'"/>    
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.0-rc.1.20451.13" Condition="'$(TargetFramework)' == 'net5.0'"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0" Condition="'$(TargetFramework)' == 'netcoreapp2.0'" />    
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.0-rc.1.20451.13" Condition="'$(TargetFramework)' == 'net5.0'" />
   </ItemGroup>
 
   <ItemGroup>

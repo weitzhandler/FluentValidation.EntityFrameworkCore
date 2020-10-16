@@ -33,6 +33,27 @@ public class EntityContext : DbContext
     }
 }
 ```
+
+Alternatively, call `AddFluentValidation` on the `IServiceCollection`, optionally providing validator discovery assemblies, then have your `DbContext` take a dependency on `IValidatorFactory`:
+```c#
+public class EntityContext : DbContext
+{    
+    private readonly IValidatorFactory validatorFactory;
+
+    public EntityContext(DbContextOptions<EntityContext> options, IValidatorFactory validatorFactory)
+        : base(options)
+    {
+        this.validatorFactory = validatorFactory;
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationFromFluentValidations(validatorFactory);
+    }
+}
+```
+
+
 Note: we need a reference to the service provider so that we obtain the registered `IValidator<>`s from it.
 
 The following validators are currently supported:

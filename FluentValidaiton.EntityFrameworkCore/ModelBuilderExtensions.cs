@@ -14,7 +14,23 @@ namespace FluentValidaiton.EntityFrameworkCore
     {
         private static readonly Type ValidatorType = typeof(IValidator<>);
 
+        public static void ApplyConfigurationFromFluentValidations(this ModelBuilder modelBuilder, IValidatorFactory validatorFactory)
+        {
+            modelBuilder.ApplyConfigurationFromFluentValidations(entityType => validatorFactory.GetValidator(entityType));
+        }
+
         public static void ApplyConfigurationFromFluentValidations(this ModelBuilder modelBuilder, IServiceProvider serviceProvider)
+        {
+            IValidator validatorFactory(Type entityType)
+            {
+                var genericValidatorType = ValidatorType.MakeGenericType(entityType);
+                return (IValidator)serviceProvider.GetRequiredService(genericValidatorType);
+            }
+
+            modelBuilder.ApplyConfigurationFromFluentValidations(validatorFactory);
+        }
+
+        private static void ApplyConfigurationFromFluentValidations(this ModelBuilder modelBuilder, Func<Type, IValidator> validatorFactory)
         {
             var entityTypes =
                 modelBuilder
@@ -25,8 +41,7 @@ namespace FluentValidaiton.EntityFrameworkCore
 
             foreach (var entityType in entityTypes)
             {
-                var genericValidatorType = ValidatorType.MakeGenericType(entityType);
-                var validator = (IValidator)serviceProvider.GetRequiredService(genericValidatorType);
+                var validator = validatorFactory(entityType);
 
                 if (validator == null)
                     continue;
