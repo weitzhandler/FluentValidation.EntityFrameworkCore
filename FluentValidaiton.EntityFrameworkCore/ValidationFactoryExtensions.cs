@@ -10,15 +10,18 @@ namespace FluentValidaiton.EntityFrameworkCore
     public static class ValidationFactoryExtensions
     {
         public static IServiceCollection AddFluentValidation(this IServiceCollection services, ServiceLifetime serviceLifetime = ServiceLifetime.Transient) =>
-            services.AddFluentValidation(Enumerable.Empty<Assembly>(), serviceLifetime);
+            services.AddFluentValidation(new[] { Assembly.GetCallingAssembly() }, serviceLifetime);
 
         public static IServiceCollection AddFluentValidation(this IServiceCollection services, IEnumerable<Assembly> discoveryAssemblies, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
         {
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
 
-            if (discoveryAssemblies?.Any() != true)
-                discoveryAssemblies = new[] { Assembly.GetCallingAssembly() };
+            if (discoveryAssemblies == null)
+                throw new ArgumentNullException(nameof(discoveryAssemblies));
+
+            if (!discoveryAssemblies.Any())
+                throw new ArgumentException("No assemblies were specified."); ;
 
             return services
                 .AddValidatorsFromAssemblies(discoveryAssemblies, serviceLifetime)

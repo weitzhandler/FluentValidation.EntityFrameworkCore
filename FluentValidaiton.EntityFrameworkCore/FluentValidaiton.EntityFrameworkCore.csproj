@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.3</Version>
+    <Version>0.3.1</Version>
     <Authors>Shimmy Weitzhandler</Authors>
     <PackageId>Weitzhandler.FluentValidaiton.EntityFrameworkCore</PackageId>
     <Company />
@@ -13,7 +13,7 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/weitzhandler/FluentValidation.EntityFrameworkCore</RepositoryUrl>
     <PackageTags>FluentValidation, EntityFrameworkCore, DataAnnotations, validation, annotations, entities, entity, EntityFramework</PackageTags>
-    <AssemblyVersion>0.3.0.0</AssemblyVersion>
+    <AssemblyVersion>0.3.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
