@@ -63,13 +63,20 @@ namespace FluentValidation.EntityFrameworkCore.Tests.Models
             Assert.Equal(expectedMaxLength, actualMaxLength);
         }
 
-        [Fact(Skip = "This feature is not yet supported.")]
+        [Fact]
         public void Should_annotate_fixed_length_property()
         {
             var entityType = entityContext.Model.FindEntityType(typeof(Entity));
             var fixedLengthProperty = entityType.FindProperty(nameof(Entity.FixedLength10));
 
-            throw new NotImplementedException();
+            var expectedFixedLength = 10;
+            var expectedIsFixedLengthValue = true;
+
+            var actualFixedLength = fixedLengthProperty.GetMaxLength();
+            var actualIsFixedLengthValue = fixedLengthProperty.IsFixedLength();
+
+            Assert.Equal(expectedFixedLength, actualFixedLength);
+            Assert.Equal(expectedIsFixedLengthValue, actualIsFixedLengthValue);
         }
 
 #if NET5_0
