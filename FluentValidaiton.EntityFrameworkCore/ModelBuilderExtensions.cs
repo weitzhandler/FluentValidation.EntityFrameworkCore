@@ -30,7 +30,7 @@ namespace FluentValidaiton.EntityFrameworkCore
             modelBuilder.ApplyConfigurationFromFluentValidations(validatorFactory);
         }
 
-        private static void ApplyConfigurationFromFluentValidations(this ModelBuilder modelBuilder, Func<Type, IValidator> validatorFactory)
+        private static void ApplyConfigurationFromFluentValidations(this ModelBuilder modelBuilder, Func<Type, IValidator?> validatorFactory)
         {
             var entityTypes =
                 modelBuilder

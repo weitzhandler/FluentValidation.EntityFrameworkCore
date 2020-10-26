@@ -4,7 +4,8 @@
     <TargetFrameworks>netcoreapp2.0;net5.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <LangVersion>8.0</LangVersion>
-    <Version>0.3.1</Version>
+    <Nullable>enable</Nullable>
+    <Version>0.3.2</Version>
   </PropertyGroup>
 
   <ItemGroup>    

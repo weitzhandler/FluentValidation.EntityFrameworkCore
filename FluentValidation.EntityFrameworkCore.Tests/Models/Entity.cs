@@ -1,4 +1,6 @@
-﻿namespace FluentValidation.EntityFrameworkCore.Tests.Models
+﻿#nullable disable
+
+namespace FluentValidation.EntityFrameworkCore.Tests.Models
 {
     public class Entity
     {

@@ -14,13 +14,13 @@ namespace FluentValidaiton.EntityFrameworkCore
             this.serviceProvider = serviceProvider;
         }
 
-        public IValidator<T> GetValidator<T>() => serviceProvider.GetRequiredService<IValidator<T>>();
+        public IValidator<T>? GetValidator<T>() => serviceProvider.GetService<IValidator<T>>();
 
-        public IValidator GetValidator(Type validatedEntityType)
+        public IValidator? GetValidator(Type validatedEntityType)
         {
             var validatorType = genericValidatorType.MakeGenericType(validatedEntityType);
 
-            return (IValidator)serviceProvider.GetRequiredService(validatorType);
+            return (IValidator?)serviceProvider.GetService(validatorType);
         }
     }
 }

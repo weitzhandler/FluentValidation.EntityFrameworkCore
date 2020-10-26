@@ -67,3 +67,10 @@ Annotates the Db column with a fixed length annotation (e.g. `varchar(f)`).
 - `ScalePrecisionValidator` (`RuleFor(entity => entity.Property.ScalePrecision(scale: s, precision: p))`)  
 Annotates the Db column (if decimal) with the precision and scale
 This is only supported in EF Core 5+
+
+
+## Release notes
+
+0.3.2
+
+Bug fix

@@ -8,7 +8,7 @@ namespace FluentValidation.EntityFrameworkCore.Tests.Models
     {
         private readonly IServiceProvider serviceProvider;
 
-        public DbSet<Entity> Entities { get; set; }
+        public DbSet<Entity> Entities => Set<Entity>();
 
         public EntityContext(DbContextOptions<EntityContext> options, IServiceProvider serviceProvider)
             : base(options)
