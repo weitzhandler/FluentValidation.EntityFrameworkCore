@@ -48,7 +48,6 @@ namespace FluentValidation.EntityFrameworkCore.Tests.Models
             var actualNullabilityValue = notNullProperty.IsNullable;
 
             Assert.Equal(expectedNullabilityValue, actualNullabilityValue);
-
         }
 
         [Fact]
@@ -61,6 +60,18 @@ namespace FluentValidation.EntityFrameworkCore.Tests.Models
             var actualMaxLength = maxLengthProperty.GetMaxLength();
 
             Assert.Equal(expectedMaxLength, actualMaxLength);
+        }
+
+        [Fact]
+        public void Should_not_require_length_property()
+        {
+            var entityType = entityContext.Model.FindEntityType(typeof(Entity));
+            var maxLengthProperty = entityType.FindProperty(nameof(Entity.MaxLength10));
+
+            var expectedNullabilityValue = true;
+            var actualNullabilityValue = maxLengthProperty.IsNullable;
+
+            Assert.Equal(expectedNullabilityValue, actualNullabilityValue);
         }
 
         [Fact]
