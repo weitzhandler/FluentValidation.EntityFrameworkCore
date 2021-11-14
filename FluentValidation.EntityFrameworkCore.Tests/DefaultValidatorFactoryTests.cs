@@ -51,7 +51,6 @@ namespace FluentValidation.EntityFrameworkCore.Tests
         public void Should_not_throw_on_non_registered()
         {
             // arrange
-
             serviceProviderMock
                 .Setup(serviceProvider => serviceProvider.GetService(typeof(IValidator<int>)))
                 .Returns(null);

@@ -36,7 +36,7 @@ namespace FluentValidaiton.EntityFrameworkCore
                 modelBuilder
                 .Model
                 .GetEntityTypes()
-                .Where(entityType => entityType.HasClrType())
+                .Where(entityType => entityType.ClrType != null)
                 .Select(entityType => entityType.ClrType);
 
             foreach (var entityType in entityTypes)
@@ -97,7 +97,7 @@ namespace FluentValidaiton.EntityFrameworkCore
 
                             if (propertyBuilder.Metadata.ClrType == typeof(decimal))
                             {
-#if NETSTANDARD2_1 //for lower versions - set with annotations etc.
+#if NETSTANDARD2_1 || NET6_0 //for lower versions - set with annotations etc.
                                 propertyBuilder
                                     .HasPrecision(
                                        precision: scalePrecisionValidator.Precision,

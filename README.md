@@ -71,6 +71,12 @@ This is only supported in EF Core 5+
 
 ## Release notes
 
-0.3.2
+#### 0.3.2
 
 Bug fix
+
+Release notes:
+
+#### 0.4.0
+
+Added .NET 6 support
