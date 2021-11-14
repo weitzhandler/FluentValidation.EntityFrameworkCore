@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,7 +6,6 @@ using Xunit;
 
 namespace FluentValidation.EntityFrameworkCore.Tests.Models
 {
-    [SuppressMessage("Design", "CA1063:Implement IDisposable Correctly", Justification = "By design")]
     public class AdapterTests : IDisposable
     {
         private readonly ServiceProvider services;
@@ -79,7 +77,7 @@ namespace FluentValidation.EntityFrameworkCore.Tests.Models
             Assert.Equal(expectedIsFixedLengthValue, actualIsFixedLengthValue);
         }
 
-#if NET5_0
+#if NET5_0_OR_GREATER
         [Fact]
         public void Should_annotate_precision_property_precision_value()
         {

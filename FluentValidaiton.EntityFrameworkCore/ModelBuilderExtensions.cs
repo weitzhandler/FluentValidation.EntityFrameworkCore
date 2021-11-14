@@ -36,14 +36,14 @@ namespace FluentValidaiton.EntityFrameworkCore
                 modelBuilder
                 .Model
                 .GetEntityTypes()
-                .Where(entityType => entityType.HasClrType())
+                .Where(entityType => entityType.ClrType != default)
                 .Select(entityType => entityType.ClrType);
 
             foreach (var entityType in entityTypes)
             {
                 var validator = validatorFactory(entityType);
 
-                if (validator == null)
+                if (validator == default)
                     continue;
 
                 var entityTypeBuilder = modelBuilder.Entity(entityType);
@@ -97,7 +97,7 @@ namespace FluentValidaiton.EntityFrameworkCore
 
                             if (propertyBuilder.Metadata.ClrType == typeof(decimal))
                             {
-#if NETSTANDARD2_1 //for lower versions - set with annotations etc.
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER //for lower versions - set with annotations etc.
                                 propertyBuilder
                                     .HasPrecision(
                                        precision: scalePrecisionValidator.Precision,

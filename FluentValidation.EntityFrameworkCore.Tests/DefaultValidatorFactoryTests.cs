@@ -16,10 +16,9 @@ namespace FluentValidation.EntityFrameworkCore.Tests
         }
 
         [Fact]
-        public void Should_resolve_validator_()
+        public void Should_resolve_validator()
         {
             // arrange
-
             var validator = Mock.Of<IValidator<int>>();
             serviceProviderMock
                 .Setup(serviceProvider => serviceProvider.GetService(typeof(IValidator<int>)))
@@ -36,7 +35,6 @@ namespace FluentValidation.EntityFrameworkCore.Tests
         public void Should_resolve_validator_generic()
         {
             // arrange
-
             var validator = Mock.Of<IValidator<int>>();
             serviceProviderMock
                 .Setup(serviceProvider => serviceProvider.GetService(typeof(IValidator<int>)))
