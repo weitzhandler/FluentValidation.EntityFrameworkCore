@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidaiton.EntityFrameworkCore", "FluentValidaiton.EntityFrameworkCore\FluentValidaiton.EntityFrameworkCore.csproj", "{6E77C908-A847-4E3E-A269-B5F7778AF95E}"
 EndProject

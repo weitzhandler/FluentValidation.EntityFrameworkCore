@@ -97,7 +97,7 @@ namespace FluentValidaiton.EntityFrameworkCore
 
                             if (propertyBuilder.Metadata.ClrType == typeof(decimal))
                             {
-#if NETSTANDARD2_1 || NET6_0_OR_GREATER //for lower versions - set with annotations etc.
+#if NETCOREAPP2_1_OR_GREATER //for lower versions - set with annotations etc.
                                 propertyBuilder
                                     .HasPrecision(
                                        precision: scalePrecisionValidator.Precision,

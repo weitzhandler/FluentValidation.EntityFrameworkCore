@@ -77,7 +77,7 @@ namespace FluentValidation.EntityFrameworkCore.Tests.Models
             Assert.Equal(expectedIsFixedLengthValue, actualIsFixedLengthValue);
         }
 
-#if NET5_0_OR_GREATER
+#if NET5_0
         [Fact]
         public void Should_annotate_precision_property_precision_value()
         {
