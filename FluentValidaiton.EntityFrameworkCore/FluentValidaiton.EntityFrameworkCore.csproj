@@ -14,7 +14,7 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/weitzhandler/FluentValidation.EntityFrameworkCore</RepositoryUrl>
     <PackageTags>FluentValidation, EntityFrameworkCore, DataAnnotations, validation, annotations, entities, entity, EntityFramework</PackageTags>
-    <AssemblyVersion>0.3.2.0</AssemblyVersion>
+    <AssemblyVersion>0.4.0</AssemblyVersion>
     <UserSecretsId>3aebd1e9-4033-4456-9927-a2a365813724</UserSecretsId>
   </PropertyGroup>
 
