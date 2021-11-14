@@ -8,7 +8,7 @@
     <Version>0.4.0</Version>
   </PropertyGroup>
 
-  <ItemGroup>    
+  <ItemGroup>
     <PackageReference Include="Moq" Version="4.14.6" />
 
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" Condition="'$(TargetFramework)' == 'net6.0'" />
@@ -19,10 +19,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0" Condition="'$(TargetFramework)' == 'netcoreapp2.0'" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.0-rc.1.20451.13" Condition="'$(TargetFramework)' == 'net5.0'" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Condition="'$(TargetFramework)' == 'netcoreapp2.0'" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Condition="'$(TargetFramework)' == 'net5.0'" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Condition="'$(TargetFramework)' == 'net6.0'" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
